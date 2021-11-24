@@ -1,3 +1,6 @@
+import RepoResults from './components/RepoResults';
+import RepoInfoHolder from './components/RepoInfoHolder';
+
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -35,14 +38,26 @@ function App() {
 
   if (loadState === false) {
     return (
-      <div className='App'>
+      <div className='spp'>
         <h1>Loading...</h1>
       </div>
     );
   } else {
     return (
-      <div className='App'>
-        <h1>{repoList[1]}</h1>
+      <div className='app'>
+        <div className='main'>
+          <header>
+            <h1>The Daily Issue</h1>
+            <h5>Find issues and contribute to trending repos in GitHub.</h5>
+          </header>
+          <div className='repo-results'>
+            <RepoResults repos={repoList} />
+          </div>
+        </div>
+        <div className='repo-info-holder'>
+          <h6>test...</h6>
+          <RepoInfoHolder />
+        </div>
       </div>
     );
   }
