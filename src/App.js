@@ -2,6 +2,7 @@ import RepoResults from './components/RepoResults';
 import RepoInfoHolder from './components/RepoInfoHolder';
 import { RepoContext } from './RepoContext';
 import { useState, useEffect } from 'react';
+import { Route } from 'react-router';
 
 function App() {
   // set trending repository list from webscrape
@@ -10,6 +11,7 @@ function App() {
   const [loadState, setLoadState] = useState(false);
 
   const [repository, setRepository] = useState();
+  const [issueData, setIssueData] = useState();
   // webscrape github trending repos
   useEffect(() => {
     fetch('https://sheltered-sea-91500.herokuapp.com/github.com/trending')
@@ -48,7 +50,9 @@ function App() {
     );
   } else {
     return (
-      <RepoContext.Provider value={{ repository, setRepository }}>
+      <RepoContext.Provider
+        value={{ repository, setRepository, issueData, setIssueData }}
+      >
         <div className='app'>
           <div className='main'>
             <header>
@@ -60,7 +64,7 @@ function App() {
             </div>
           </div>
           <div className='repo-info-holder'>
-            <RepoInfoHolder repository={repository} />
+            <Route exact path='/:name' component={RepoInfoHolder} />
           </div>
         </div>
       </RepoContext.Provider>

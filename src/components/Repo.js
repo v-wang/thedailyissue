@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState, useContext } from 'react';
 import { RepoContext } from './../RepoContext';
+import { Link } from 'react-router-dom';
 
 function Repo({ repo }) {
   const [loadState, setLoadState] = useState(false);
@@ -33,24 +34,26 @@ function Repo({ repo }) {
     );
   } else {
     return (
-      <div
-        className='repo-card'
-        id={repoData.id}
-        onClick={() => {
-          setRepository(repoData);
-        }}
-      >
-        <img src={repoData.owner.avatar_url}></img>
-        {/* <h3>{repository.owner.login}</h3> */}
-        <a href={repoData.html_url}>
+      <Link to={`/${repoData.name}`}>
+        <div
+          className='repo-card'
+          id={repoData.id}
+          onClick={() => {
+            setRepository(repoData);
+          }}
+        >
+          <img src={repoData.owner.avatar_url}></img>
+          {/* <h3>{repository.owner.login}</h3> */}
+
           <h4>{repoData.name}</h4>
-        </a>
-        <p>
-          {repoData.description === null
-            ? 'No description provided. Follow the repo link to learn more.'
-            : repoData.description}
-        </p>
-      </div>
+
+          <p>
+            {repoData.description === null
+              ? 'No description provided. Follow the repo link to learn more.'
+              : repoData.description}
+          </p>
+        </div>
+      </Link>
     );
   }
 }

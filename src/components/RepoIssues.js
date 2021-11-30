@@ -1,7 +1,12 @@
 import React from 'react';
+import Issue from './Issue';
 
 function RepoIssues(props) {
-  return <div></div>;
+  return (
+    <div>
+      <Issue></Issue>
+    </div>
+  );
 }
 
 export default RepoIssues;
