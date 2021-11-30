@@ -1,6 +1,6 @@
 import RepoResults from './components/RepoResults';
 import RepoInfoHolder from './components/RepoInfoHolder';
-
+import { RepoContext } from './RepoContext';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
   // determine load state so that page doesn't load before data is fetched
   const [loadState, setLoadState] = useState(false);
 
+  const [repository, setRepository] = useState();
   // webscrape github trending repos
   useEffect(() => {
     fetch('https://sheltered-sea-91500.herokuapp.com/github.com/trending')
@@ -47,21 +48,22 @@ function App() {
     );
   } else {
     return (
-      <div className='app'>
-        <div className='main'>
-          <header>
-            <h1>The Daily Issue</h1>
-            <h5>Find issues and contribute to trending repos in GitHub.</h5>
-          </header>
-          <div className='repo-results'>
-            <RepoResults repos={repoList} />
+      <RepoContext.Provider value={{ repository, setRepository }}>
+        <div className='app'>
+          <div className='main'>
+            <header>
+              <h1>The Daily Issue</h1>
+              <h5>Find issues and contribute to trending repos in GitHub.</h5>
+            </header>
+            <div className='repo-results'>
+              <RepoResults repos={repoList} />
+            </div>
+          </div>
+          <div className='repo-info-holder'>
+            <RepoInfoHolder />
           </div>
         </div>
-        <div className='repo-info-holder'>
-          <h6>test...</h6>
-          <RepoInfoHolder />
-        </div>
-      </div>
+      </RepoContext.Provider>
     );
   }
 }

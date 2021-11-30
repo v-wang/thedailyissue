@@ -1,9 +1,11 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { RepoContext } from './../RepoContext';
 
-function Repo({ repo, selectRepo }) {
-  const [repository, setRepository] = useState();
+function Repo({ repo }) {
   const [loadState, setLoadState] = useState(false);
+  const [repoData, setRepoData] = useState();
+  const { setRepository } = useContext(RepoContext);
 
   useEffect(() => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
@@ -15,7 +17,7 @@ function Repo({ repo, selectRepo }) {
         return response.json();
       })
       .then(function (response) {
-        setRepository(response);
+        setRepoData(response);
         setLoadState(true);
       })
       .catch(function (err) {
@@ -33,20 +35,20 @@ function Repo({ repo, selectRepo }) {
     return (
       <div
         className='repo-card'
-        id={repository.id}
-        onClick={(ev) => {
-          selectRepo(ev);
+        id={repoData.id}
+        onClick={() => {
+          setRepository(repoData);
         }}
       >
-        <img src={repository.owner.avatar_url}></img>
+        <img src={repoData.owner.avatar_url}></img>
         {/* <h3>{repository.owner.login}</h3> */}
-        <a href={repository.html_url}>
-          <h4>{repository.name}</h4>
+        <a href={repoData.html_url}>
+          <h4>{repoData.name}</h4>
         </a>
         <p>
-          {repository.description === null
+          {repoData.description === null
             ? 'No description provided. Follow the repo link to learn more.'
-            : repository.description}
+            : repoData.description}
         </p>
       </div>
     );
