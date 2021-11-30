@@ -4,9 +4,12 @@ import RepoInfoHolder from './components/RepoInfoHolder';
 import { useState, useEffect } from 'react';
 
 function App() {
+  // set trending repository list from webscrape
   const [repoList, setRepoList] = useState();
+  // determine load state so that page doesn't load before data is fetched
   const [loadState, setLoadState] = useState(false);
 
+  // webscrape github trending repos
   useEffect(() => {
     fetch('https://sheltered-sea-91500.herokuapp.com/github.com/trending')
       .then(function (response) {
