@@ -60,7 +60,7 @@ function App() {
             </div>
           </div>
           <div className='repo-info-holder'>
-            <RepoInfoHolder />
+            <RepoInfoHolder repository={repository} />
           </div>
         </div>
       </RepoContext.Provider>

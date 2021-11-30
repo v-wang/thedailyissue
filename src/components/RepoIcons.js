@@ -1,7 +1,11 @@
 import React from 'react';
 
-function RepoIcons(props) {
-  return <div></div>;
+function RepoIcons({ repository }) {
+  return (
+    <div>
+      <h5>{repository.stargazers_count}</h5>
+    </div>
+  );
 }
 
 export default RepoIcons;
