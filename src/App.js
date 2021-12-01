@@ -63,7 +63,7 @@ function App() {
 
   if (loadState === false) {
     return (
-      <div className='spp'>
+      <div className='app'>
         <h1>Loading...</h1>
       </div>
     );

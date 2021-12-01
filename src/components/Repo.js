@@ -4,11 +4,14 @@ import { RepoContext } from './../RepoContext';
 import { Link } from 'react-router-dom';
 
 function Repo({ repo }) {
+  // determine to show load screen or not
   const [loadState, setLoadState] = useState(false);
+  // set repo data to be displayed
   const [repoData, setRepoData] = useState();
+  // api call to fetch issue data when link is clicked
   const { fetchIssues } = useContext(RepoContext);
+  // update repository hook to store current selected repository data to avoid additional API calls
   const { setRepository } = useContext(RepoContext);
-  const { repository } = useContext(RepoContext);
 
   useEffect(() => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
@@ -45,7 +48,6 @@ function Repo({ repo }) {
       >
         <div className='repo-card' id={repoData.id}>
           <img src={repoData.owner.avatar_url}></img>
-          {/* <h3>{repository.owner.login}</h3> */}
 
           <h4>{repoData.name}</h4>
 
