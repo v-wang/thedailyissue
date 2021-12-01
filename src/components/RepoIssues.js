@@ -19,7 +19,7 @@ function RepoIssues({ repository }) {
     );
   } else {
     return (
-      <div>
+      <div className='issuesHolder'>
         {issueData.slice(0, 4).map((issue) => {
           return <Issue issue={issue}></Issue>;
         })}

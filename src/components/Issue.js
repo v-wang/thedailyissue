@@ -2,8 +2,9 @@ import React from 'react';
 
 function Issue({ issue }) {
   return (
-    <div>
-      <h5>{issue.title}</h5>
+    <div className='issue'>
+      <h4>{issue.title}</h4>
+      <p>{issue.body}</p>
     </div>
   );
 }

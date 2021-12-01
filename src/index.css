@@ -23,11 +23,12 @@ code {
 }
 
 .main {
-  min-height: inherit;
+  height: 100vh;
+  grid-column: 1 /2;
   display: grid;
   background-color: black;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 0.5fr 0.5fr 4fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr 4fr 0.3fr;
 }
 
 header {
@@ -49,7 +50,6 @@ header {
   background-color: #34495e;
   padding: 20px;
   overflow-y: scroll;
-  max-height: 600px;
 }
 
 .repo-card {
@@ -92,9 +92,24 @@ header {
   background-color: #1e272e;
   color: #00ff41;
   border-left: 4px solid black;
+  grid-column: 2/3;
+  height: 100vh;
+  overflow-y: scroll;
+  min-width: 400px;
 }
 
 @media screen and (max-width: 800px) {
   .repo-results {
   }
+}
+
+.issuesHolder {
+}
+
+.issue {
+  width: 300px;
+}
+
+.issue p {
+  font-size: 12px;
 }
