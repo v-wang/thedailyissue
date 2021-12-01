@@ -88,6 +88,7 @@ header {
   float: left;
 }
 
+/* REPO INFO SECTION */
 .repo-info-holder {
   background-color: #1e272e;
   color: #00ff41;
@@ -97,19 +98,21 @@ header {
   overflow-y: scroll;
   min-width: 400px;
 }
-
-@media screen and (max-width: 800px) {
-  .repo-results {
-  }
-}
-
 .issuesHolder {
 }
 
 .issue {
   width: 300px;
+
+  border: 1px solid red;
 }
 
 .issue p {
-  font-size: 12px;
+  font-size: 14px;
+  height: 150px;
+  overflow: hidden;
+}
+@media screen and (max-width: 800px) {
+  .repo-results {
+  }
 }

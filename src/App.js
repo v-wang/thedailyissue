@@ -9,9 +9,9 @@ function App() {
   const [repoList, setRepoList] = useState();
   // determine load state so that page doesn't load before data is fetched
   const [loadState, setLoadState] = useState(false);
-
+  // holds selected repo information to avoid additional API calls
   const [repository, setRepository] = useState();
-
+  // set issue data list for given respository
   const [issueData, setIssueData] = useState();
 
   // webscrape github trending repos
@@ -24,7 +24,7 @@ function App() {
         // Convert the HTML string into a document object
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, 'text/html');
-
+        // holds repo URL names
         var repoUrlArray = [];
         let repos = doc.querySelectorAll('.Box-row');
 
@@ -44,6 +44,7 @@ function App() {
       });
   }, []);
 
+  // used for onClick when Link route for repo is clicked
   const fetchIssues = (repo) => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
     let auth = { Authorization: `Basic ${credentials}` };
@@ -61,6 +62,7 @@ function App() {
       });
   };
 
+  // buffer for page loads to prevent undefined load error
   if (loadState === false) {
     return (
       <div className='app'>
@@ -69,6 +71,7 @@ function App() {
     );
   } else {
     return (
+      // pass to child components to set info regarding repo and issues
       <RepoContext.Provider
         value={{
           repository,
@@ -85,11 +88,17 @@ function App() {
               <h5>Find issues and contribute to trending repos in GitHub.</h5>
             </header>
             <div className='repo-results'>
-              <RepoResults repos={repoList} />
+              <RepoResults repoList={repoList} />
             </div>
           </div>
           <div className='repo-info-holder'>
             <Route exact path='/:name' component={RepoInfoHolder} />
+            {repository === undefined ? (
+              <h5>
+                Go ahead and click on a trending respository card to get
+                started!
+              </h5>
+            ) : null}
           </div>
         </div>
       </RepoContext.Provider>

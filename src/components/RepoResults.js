@@ -1,10 +1,10 @@
 import React from 'react';
 import Repo from './Repo';
 
-function RepoResults({ repos }) {
+function RepoResults({ repoList }) {
   return (
     <>
-      {repos.map((repo) => {
+      {repoList.map((repo) => {
         return <Repo repo={repo} />;
       })}
     </>

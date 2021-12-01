@@ -4,13 +4,16 @@ import { RepoContext } from './../RepoContext';
 import { Link } from 'react-router-dom';
 
 function Repo({ repo }) {
-  // determine to show load screen or not
+  // determine to show loading message on repo card or not
   const [loadState, setLoadState] = useState(false);
+
   // set repo data to be displayed
   const [repoData, setRepoData] = useState();
-  // api call to fetch issue data when link is clicked
+
+  // CONTEXT FROM APP.JS - api call to fetch issue data when link is clicked
   const { fetchIssues } = useContext(RepoContext);
-  // update repository hook to store current selected repository data to avoid additional API calls
+
+  // CONTEXT FROM APP.JS - update repository hook to store current selected repository data to avoid additional API calls when displaying general information in repo info holder
   const { setRepository } = useContext(RepoContext);
 
   useEffect(() => {
@@ -31,6 +34,7 @@ function Repo({ repo }) {
       });
   }, []);
 
+  // fall back when repo cards are loading
   if (loadState === false) {
     return (
       <div className='repo-card'>
@@ -42,7 +46,9 @@ function Repo({ repo }) {
       <Link
         to={{ pathname: `/${repoData.name}`, state: repoData }}
         onClick={() => {
+          // update repository hook to hold repo information on clicked link
           setRepository(repoData);
+          // fetch issues when Link is clicked
           fetchIssues(repoData);
         }}
       >

@@ -8,15 +8,13 @@ import { RepoContext } from '../RepoContext';
 function RepoInfoHolder(props) {
   const repoData = props.location.state;
   const { repository } = useContext(RepoContext);
-  console.log(repoData);
-  console.log(repository);
 
   return (
-    <div>
+    <>
       <RepoInfo repository={repoData}></RepoInfo>
       <RepoIcons repository={repoData}></RepoIcons>
       <RepoIssues repository={repository}></RepoIssues>
-    </div>
+    </>
   );
 }
 
