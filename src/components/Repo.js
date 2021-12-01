@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 function Repo({ repo }) {
   const [loadState, setLoadState] = useState(false);
   const [repoData, setRepoData] = useState();
+  const { fetchIssues } = useContext(RepoContext);
   const { setRepository } = useContext(RepoContext);
+  const { repository } = useContext(RepoContext);
 
   useEffect(() => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
@@ -34,14 +36,14 @@ function Repo({ repo }) {
     );
   } else {
     return (
-      <Link to={`/${repoData.name}`}>
-        <div
-          className='repo-card'
-          id={repoData.id}
-          onClick={() => {
-            setRepository(repoData);
-          }}
-        >
+      <Link
+        to={{ pathname: `/${repoData.name}`, state: repoData }}
+        onClick={() => {
+          setRepository(repoData);
+          fetchIssues(repoData);
+        }}
+      >
+        <div className='repo-card' id={repoData.id}>
           <img src={repoData.owner.avatar_url}></img>
           {/* <h3>{repository.owner.login}</h3> */}
 

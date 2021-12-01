@@ -11,7 +11,9 @@ function App() {
   const [loadState, setLoadState] = useState(false);
 
   const [repository, setRepository] = useState();
+
   const [issueData, setIssueData] = useState();
+
   // webscrape github trending repos
   useEffect(() => {
     fetch('https://sheltered-sea-91500.herokuapp.com/github.com/trending')
@@ -42,6 +44,23 @@ function App() {
       });
   }, []);
 
+  const fetchIssues = (repo) => {
+    let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
+    let auth = { Authorization: `Basic ${credentials}` };
+    fetch(`https://api.github.com/repos/${repo.full_name}/issues`, {
+      headers: auth,
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (response) {
+        setIssueData(response);
+      })
+      .catch(function (err) {
+        console.warn('Error! Something went wrong.', err);
+      });
+  };
+
   if (loadState === false) {
     return (
       <div className='spp'>
@@ -51,7 +70,13 @@ function App() {
   } else {
     return (
       <RepoContext.Provider
-        value={{ repository, setRepository, issueData, setIssueData }}
+        value={{
+          repository,
+          setRepository,
+          issueData,
+          setIssueData,
+          fetchIssues,
+        }}
       >
         <div className='app'>
           <div className='main'>

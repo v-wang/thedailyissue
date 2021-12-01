@@ -1,10 +1,13 @@
-import React from 'react';
 import Issue from './Issue';
+import { useContext } from 'react';
+import { RepoContext } from '../RepoContext';
 
-function RepoIssues(props) {
+function RepoIssues({ repository }) {
+  const { issueData } = useContext(RepoContext);
+
   return (
     <div>
-      <Issue></Issue>
+      <Issue issueData={issueData}></Issue>
     </div>
   );
 }
