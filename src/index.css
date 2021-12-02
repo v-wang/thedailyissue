@@ -99,6 +99,7 @@ header {
   overflow-y: scroll;
   min-width: 400px;
   padding: 20px;
+  padding-top: 50px;
   padding-right: 35px;
   box-sizing: border-box;
 }
@@ -106,6 +107,17 @@ header {
 .repoGenInfo {
   /* padding: 20px; */
   width: inherit;
+}
+
+.genInfoTop {
+  display: flex;
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+}
+
+.titleLink {
+  width: 80%;
+  margin-left: 10px;
 }
 
 .repoGenInfo img {
@@ -116,18 +128,13 @@ header {
   text-decoration: none;
   color: white;
   font-size: 12px;
+  overflow-wrap: break-word;
 }
 
 .repoGenInfo h1 {
   font-size: 25px;
   margin: 0;
-  margin-top: 10px;
   color: white;
-}
-
-.repoGenInfo h2 {
-  font-size: 16px;
-  word-wrap: break-word;
 }
 
 .repoGenInfo p {
@@ -152,26 +159,49 @@ header {
 
 .issuesHolder {
   /* padding: 20px; */
-  color: #00ff41;
+  /* color: #00ff41; */
+  color: white;
+  border-top: 1px solid white;
+}
+
+.issuesHolder img {
+  height: 32px;
+}
+
+.issuesHolder h2 {
+  color: #ff4136;
 }
 
 .issue {
-  min-height: 150px;
+  /* min-height: 150px; */
   margin-top: 20px;
 }
 
-.issue h2 {
+.issueTitle {
+  display: flex;
+}
+
+.issueTitle h3 {
   font-size: 16px;
+  margin-left: 15px;
+  margin-top: 5px;
+  padding-right: 8px;
+}
+
+.issueBodyHolder {
+  background: black;
+  padding: 10px 20px 10px 20px;
 }
 
 .issue p {
-  font-size: 15px;
+  font-size: 14px;
   max-width: inherit;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  color: #00ff41;
 }
 @media screen and (max-width: 800px) {
   .repo-results {

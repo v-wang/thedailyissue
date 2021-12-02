@@ -22,6 +22,7 @@ function RepoIssues({ repository }) {
   } else {
     return (
       <div className='issuesHolder'>
+        <h2>Issues:</h2>
         {issueData.forEach((data) => {
           if (data.user.type !== 'Bot') updatedIssueData.push(data);
           return updatedIssueData;
