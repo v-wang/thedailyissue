@@ -91,7 +91,8 @@ header {
 /* REPO INFO SECTION */
 .repo-info-holder {
   background-color: #1e272e;
-  color: #00ff41;
+  /* color: #00ff41; */
+  color: white;
   border-left: 4px solid black;
   grid-column: 2/3;
   height: 100vh;
@@ -99,6 +100,7 @@ header {
   min-width: 400px;
   padding: 20px;
   padding-right: 35px;
+  box-sizing: border-box;
 }
 
 .repoGenInfo {
@@ -106,13 +108,20 @@ header {
   width: inherit;
 }
 
+.repoGenInfo img {
+  height: 70px;
+}
+
 .repoGenInfo a {
   text-decoration: none;
+  color: white;
+  font-size: 12px;
 }
 
 .repoGenInfo h1 {
   font-size: 25px;
   margin: 0;
+  margin-top: 10px;
   color: white;
 }
 
@@ -125,12 +134,30 @@ header {
   font-size: 15px;
 }
 
+.iconHolder {
+  display: flex;
+  height: 40px;
+}
+
+.iconHolder img {
+  height: 20px;
+}
+
+.iconHolder h5 {
+  width: 55px;
+  margin: 0;
+  margin-left: 8px;
+  margin-top: 2px;
+}
+
 .issuesHolder {
   /* padding: 20px; */
+  color: #00ff41;
 }
 
 .issue {
   min-height: 150px;
+  margin-top: 20px;
 }
 
 .issue h2 {

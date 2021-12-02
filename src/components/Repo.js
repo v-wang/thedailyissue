@@ -16,6 +16,8 @@ function Repo({ repo }) {
   // CONTEXT FROM APP.JS - update repository hook to store current selected repository data to avoid additional API calls when displaying general information in repo info holder
   const { setRepository } = useContext(RepoContext);
 
+  const repoInfoHolderElem = document.querySelector('.repo-info-holder');
+
   useEffect(() => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
     let auth = { Authorization: `Basic ${credentials}` };
@@ -50,6 +52,7 @@ function Repo({ repo }) {
           setRepository(repoData);
           // fetch issues when Link is clicked
           fetchIssues(repoData);
+          repoInfoHolderElem.scrollTo(0, 0);
         }}
       >
         <div className='repo-card' id={repoData.id}>

@@ -3,10 +3,12 @@ import React from 'react';
 function RepoInfo({ repository }) {
   return (
     <div className='repoGenInfo'>
-      <a href={repository.html_url} target='_blank' rel='noreferrer'>
-        <h1>{repository.name}</h1>
+      <img src={repository.owner.avatar_url} />
+      <h1>{repository.name}</h1>
+
+      <a href={repository.html_url} target='blank' rel='nonreferrer'>
+        ({repository.html_url})
       </a>
-      <h2>{repository.html_url}</h2>
       <h2>Owner: {repository.owner.login}</h2>
       <h2>
         {repository.language === null
