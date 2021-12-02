@@ -16,7 +16,8 @@ function RepoIssues({ repository }) {
   } else if (issueData.length === 0) {
     return (
       <div>
-        <h5>got no issues</h5>
+        <h5>There are no issues currently, but cool repo to follow!</h5>
+        <h5>Add it to "Favorites" if you want to check back later.</h5>
       </div>
     );
   } else {

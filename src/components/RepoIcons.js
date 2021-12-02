@@ -8,6 +8,17 @@ import commLine from '../assets/commit-line.png';
 import issueIcon from '../assets/issue.png';
 
 function RepoIcons({ repository }) {
+  const iconHolderH5s = document.querySelectorAll('.iconHolder > h5');
+  iconHolderH5s.forEach((elem) => {
+    if (elem.innerText <= 10) {
+      elem.setAttribute('class', 'red');
+    } else if (elem.innerText <= 35) {
+      elem.setAttribute('class', 'orange');
+    } else {
+      elem.setAttribute('class', 'green');
+    }
+  });
+  console.log(iconHolderH5s);
   return (
     <div className='iconHolder'>
       <img src={stargazer} />

@@ -52,24 +52,28 @@ header {
   overflow-y: scroll;
 }
 
+.repo-results a {
+  text-decoration: none;
+}
+
 .repo-card {
   border: 1px solid black;
   border-radius: 15px;
   margin: 5px;
   width: 174px;
   height: 150px;
+  padding: 15px;
 }
 
 .repo-card h4 {
-  width: 100px;
+  width: 120px;
   font-size: 12px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: white;
   font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  float: right;
+  float: left;
+  margin-left: 10px;
+  margin-top: 0;
 }
 
 .repo-card h3 {
@@ -77,9 +81,15 @@ header {
 }
 
 .repo-card p {
-  font-size: 8px;
+  font-size: 12px;
   margin-top: 52px;
+  width: inherit;
   color: white;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
 }
 
 .repo-card img {
@@ -155,6 +165,19 @@ header {
   margin: 0;
   margin-left: 8px;
   margin-top: 2px;
+  color: cyan;
+}
+
+.red {
+  color: #ff7675 !important;
+}
+
+.orange {
+  color: #f39c12 !important;
+}
+
+.green {
+  color: #2ecc71 !important;
 }
 
 .issuesHolder {
@@ -165,11 +188,11 @@ header {
 }
 
 .issuesHolder img {
-  height: 32px;
+  height: 20px;
 }
 
 .issuesHolder h2 {
-  color: #ff4136;
+  color: #ff5b5b;
 }
 
 .issue {
@@ -184,7 +207,7 @@ header {
 .issueTitle h3 {
   font-size: 16px;
   margin-left: 15px;
-  margin-top: 5px;
+  margin-top: -1px;
   padding-right: 8px;
 }
 

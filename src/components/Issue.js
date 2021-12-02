@@ -1,11 +1,13 @@
 import React from 'react';
 import commLine from '../assets/commit-line.png';
+import issueIcon from '../assets/issue.png';
+import issueGreenIcon from '../assets/issue-green.png';
 
 function Issue({ issue }) {
   return (
     <div className='issue'>
       <div className='issueTitle'>
-        <img src={commLine} />
+        <img src={issueGreenIcon} />
         <h3>{issue.title}</h3>
       </div>
       <div className='issueBodyHolder'>
