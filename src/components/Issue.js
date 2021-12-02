@@ -12,6 +12,9 @@ function Issue({ issue }) {
       </div>
       <div className='issueBodyHolder'>
         <p>{issue.body === null ? 'No description provided.' : issue.body}</p>
+        <a href={issue.html_url} target='blank' rel='nonreferrer'>
+          <h4>more info</h4>
+        </a>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import RepoInfoHolder from './components/RepoInfoHolder';
 import { RepoContext } from './RepoContext';
 import { useState, useEffect } from 'react';
 import { Route } from 'react-router';
+import ghLogo from './assets/gh-logo.png';
 
 function App() {
   // set trending repository list from webscrape
@@ -62,6 +63,11 @@ function App() {
       });
   };
 
+  // save repo favorites
+  const saveFav = () => {
+    localStorage.setItem([]);
+  };
+
   // buffer for page loads to prevent undefined load error
   if (loadState === false) {
     return (
@@ -86,10 +92,23 @@ function App() {
             <header>
               <h1>The Daily Issue</h1>
               <h5>Find issues and contribute to trending repos in GitHub.</h5>
+              <div>favorites</div>
             </header>
             <div className='repo-results'>
               <RepoResults repoList={repoList} />
             </div>
+            <footer>
+              <a
+                href='https://github.com/v-wang'
+                target='blank'
+                rel='noreferrer'
+              >
+                <div>
+                  <img src={ghLogo} />
+                  <h4>built by v-wang</h4>
+                </div>
+              </a>
+            </footer>
           </div>
           <div className='repo-info-holder'>
             <Route exact path='/:name' component={RepoInfoHolder} />
