@@ -153,6 +153,7 @@ footer h4 {
 .titleLink {
   width: 80%;
   margin-left: 10px;
+  margin-top: -4px;
 }
 
 .repoGenInfo img {

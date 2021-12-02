@@ -12,6 +12,7 @@ function RepoInfo({ repository }) {
           </a>
         </div>
       </div>
+      <button onClick={() => alert('clicked')}>favorite</button>
       <p>
         <b>Owner:</b> {repository.owner.login}
       </p>

@@ -64,8 +64,11 @@ function App() {
   };
 
   // save repo favorites
-  const saveFav = () => {
-    localStorage.setItem([]);
+  const [favList, setFavList] = useState([]);
+
+  const saveFav = (id) => {
+    setFavList([...favList], id);
+    console.log(favList);
   };
 
   // buffer for page loads to prevent undefined load error
