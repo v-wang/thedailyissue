@@ -63,11 +63,13 @@ function App() {
       });
   };
 
-  // save repo favorites
-  const [favList, setFavList] = useState([]);
+  const [view, setView] = useState('x');
 
-  const saveFav = (id) => {
-    setFavList([...favList, id]);
+  // save repo favorites
+  const [favList, setFavList] = useState(['/AppFlowy-IO/appflowy']);
+
+  const saveFav = (name) => {
+    setFavList([...favList, name]);
   };
 
   // buffer for page loads to prevent undefined load error
@@ -98,7 +100,7 @@ function App() {
               <div>favorites</div>
             </header>
             <div className='repo-results'>
-              <RepoResults repoList={repoList} />
+              <RepoResults repoList={view === 'home' ? repoList : favList} />
             </div>
             <footer>
               <a

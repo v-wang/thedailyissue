@@ -144,6 +144,11 @@ footer h4 {
   width: inherit;
 }
 
+.repoGenInfo button {
+  background: none;
+  border: none;
+}
+
 .genInfoTop {
   display: flex;
   border-bottom: 1px solid white;
@@ -158,6 +163,14 @@ footer h4 {
 
 .repoGenInfo img {
   height: 70px;
+}
+
+.repoGenInfo button img {
+  height: 18px;
+}
+
+.repoGenInfo button img:hover {
+  cursor: pointer;
 }
 
 .repoGenInfo a {

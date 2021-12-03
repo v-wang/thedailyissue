@@ -1,9 +1,13 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { RepoContext } from '../RepoContext';
+import heartClear from '../assets/heart-clear.png';
+import heartRed from '../assets/heart-red.png';
 
 function RepoInfo({ repository }) {
   const { saveFav } = useContext(RepoContext);
+
+  const [saveState, setSaveState] = useState(false);
 
   return (
     <div className='repoGenInfo'>
@@ -16,7 +20,14 @@ function RepoInfo({ repository }) {
           </a>
         </div>
       </div>
-      <button onClick={() => saveFav(repository.id)}>favorite</button>
+      <button
+        onClick={() => {
+          saveFav(repository.full_name);
+          setSaveState(!saveState);
+        }}
+      >
+        <img src={saveState === false ? heartClear : heartRed} />
+      </button>
       <p>
         <b>Owner:</b> {repository.owner.login}
       </p>
