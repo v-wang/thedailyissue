@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext, useState } from 'react';
 import { RepoContext } from '../RepoContext';
-import heartClear from '../assets/heart-clear.png';
+import heart from '../assets/heart.png';
 import heartRed from '../assets/heart-red.png';
 
 function RepoInfo({ repository }) {
@@ -9,21 +9,19 @@ function RepoInfo({ repository }) {
 
   return (
     <div className='repoGenInfo'>
+      <button
+        onClick={() => {
+          saveFav(`/${repository.full_name}`);
+        }}
+      >
+        <img
+          src={
+            checkSaved(`/${repository.full_name}`) === false ? heart : heartRed
+          }
+          id={repository.id + 1}
+        />
+      </button>
       <div className='genInfoTop'>
-        <button
-          onClick={() => {
-            saveFav(`/${repository.full_name}`);
-          }}
-        >
-          <img
-            src={
-              checkSaved(`/${repository.full_name}`) === false
-                ? heartClear
-                : heartRed
-            }
-            id={repository.id + 1}
-          />
-        </button>
         <img src={repository.owner.avatar_url} />
         <div className='titleLink'>
           <h1>{repository.name}</h1>

@@ -122,6 +122,7 @@ function App() {
                 {favView === false ? 'favorites' : 'trending'}
               </button>
             </div>
+            <div className='sideBar'></div>
             <div className='repo-results'>
               <RepoResults repoList={favView === false ? repoList : favList} />
             </div>

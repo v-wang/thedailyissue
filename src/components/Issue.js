@@ -7,7 +7,14 @@ function Issue({ issue }) {
   return (
     <div className='issue'>
       <div className='issueTitle'>
-        <img src={issueGreenIcon} />
+        <img src={commLine} />
+        <h3>
+          {new Date(issue.created_at)
+            .toUTCString()
+            .split(' ')
+            .splice(1, 3)
+            .join(' ')}
+        </h3>
         <h3>{issue.title}</h3>
       </div>
       <div className='issueBodyHolder'>
