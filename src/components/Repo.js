@@ -34,7 +34,7 @@ function Repo({ repo }) {
       .catch(function (err) {
         console.warn('Error! Something went wrong.', err);
       });
-  }, []);
+  }, [repo]);
 
   // fall back when repo cards are loading
   if (loadState === false) {

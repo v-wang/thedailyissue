@@ -63,7 +63,11 @@ function App() {
       });
   };
 
-  const [view, setView] = useState('x');
+  const [favView, setFavView] = useState(false);
+
+  function setView() {
+    setFavView(!favView);
+  }
 
   // save repo favorites
   const [favList, setFavList] = useState(['/AppFlowy-IO/appflowy']);
@@ -97,10 +101,16 @@ function App() {
             <header>
               <h1>The Daily Issue</h1>
               <h5>Find issues and contribute to trending repos in GitHub.</h5>
-              <div>favorites</div>
+              <div
+                onClick={() => {
+                  setView();
+                }}
+              >
+                favorites
+              </div>
             </header>
             <div className='repo-results'>
-              <RepoResults repoList={view === 'home' ? repoList : favList} />
+              <RepoResults repoList={favView === false ? repoList : favList} />
             </div>
             <footer>
               <a
