@@ -1,10 +1,20 @@
 # The Daily Issue
 
+## SCREEN SHOT GOES HERE
+
 [Description](#description)
 <br>
-[APIs](#apis)
+[How to Use The Daily Issue](#how-to-use-the-daily-issue)
 <br>
-[Suggestions](#Suggestions)
+[Tech Stack](#tech-stack)
+<br>
+[APIs](#apis-used)
+<br>
+[Development](#development)
+<br>
+[Credits](#credits)
+<br>
+[Suggestions](#suggestions)
 
 ## Description
 

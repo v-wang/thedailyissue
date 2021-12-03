@@ -67,8 +67,7 @@ function App() {
   const [favList, setFavList] = useState([]);
 
   const saveFav = (id) => {
-    setFavList([...favList], id);
-    console.log(favList);
+    setFavList([...favList, id]);
   };
 
   // buffer for page loads to prevent undefined load error
@@ -88,6 +87,7 @@ function App() {
           issueData,
           setIssueData,
           fetchIssues,
+          saveFav,
         }}
       >
         <div className='app'>

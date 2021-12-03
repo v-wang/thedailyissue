@@ -18,7 +18,6 @@ function RepoIcons({ repository }) {
       elem.setAttribute('class', 'green');
     }
   });
-  console.log(iconHolderH5s);
   return (
     <div className='iconHolder'>
       <img src={stargazer} />

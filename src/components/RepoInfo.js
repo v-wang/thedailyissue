@@ -1,6 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
+import { RepoContext } from '../RepoContext';
 
 function RepoInfo({ repository }) {
+  const { saveFav } = useContext(RepoContext);
+
   return (
     <div className='repoGenInfo'>
       <div className='genInfoTop'>
@@ -12,7 +16,7 @@ function RepoInfo({ repository }) {
           </a>
         </div>
       </div>
-      <button onClick={() => alert('clicked')}>favorite</button>
+      <button onClick={() => saveFav(repository.id)}>favorite</button>
       <p>
         <b>Owner:</b> {repository.owner.login}
       </p>
