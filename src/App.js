@@ -76,6 +76,10 @@ function App() {
     setFavList([...favList, name]);
   };
 
+  const checkSaved = (repo) => {
+    return favList.some((elem) => elem === repo);
+  };
+
   // buffer for page loads to prevent undefined load error
   if (loadState === false) {
     return (
@@ -94,6 +98,8 @@ function App() {
           setIssueData,
           fetchIssues,
           saveFav,
+          favList,
+          checkSaved,
         }}
       >
         <div className='app'>

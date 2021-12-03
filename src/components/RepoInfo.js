@@ -5,9 +5,11 @@ import heartClear from '../assets/heart-clear.png';
 import heartRed from '../assets/heart-red.png';
 
 function RepoInfo({ repository }) {
-  const { saveFav } = useContext(RepoContext);
+  const { saveFav, checkSaved } = useContext(RepoContext);
 
   const [saveState, setSaveState] = useState(false);
+
+  const heartIcon = document.getElementById(repository.id + 1);
 
   return (
     <div className='repoGenInfo'>
@@ -22,11 +24,18 @@ function RepoInfo({ repository }) {
       </div>
       <button
         onClick={() => {
-          saveFav(repository.full_name);
-          setSaveState(!saveState);
+          saveFav(`/${repository.full_name}`);
+          console.log(checkSaved(`/${repository.full_name}`));
         }}
       >
-        <img src={saveState === false ? heartClear : heartRed} />
+        <img
+          src={
+            checkSaved(`/${repository.full_name}`) === false
+              ? heartClear
+              : heartRed
+          }
+          id={repository.id + 1}
+        />
       </button>
       <p>
         <b>Owner:</b> {repository.owner.login}
