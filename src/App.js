@@ -70,10 +70,14 @@ function App() {
   }
 
   // save repo favorites
-  const [favList, setFavList] = useState(['/AppFlowy-IO/appflowy']);
+  const [favList, setFavList] = useState([]);
 
   const saveFav = (name) => {
-    setFavList([...favList, name]);
+    if (checkSaved(name) === false) {
+      setFavList([...favList, name]);
+    } else {
+      setFavList(favList.filter((elem) => elem !== name));
+    }
   };
 
   const checkSaved = (repo) => {
@@ -107,14 +111,17 @@ function App() {
             <header>
               <h1>The Daily Issue</h1>
               <h5>Find issues and contribute to trending repos in GitHub.</h5>
-              <div
+            </header>
+            <div className='optionsBar'>
+              <h2>{favView === false ? 'Trending' : 'Favorites'}</h2>
+              <button
                 onClick={() => {
                   setView();
                 }}
               >
-                favorites
-              </div>
-            </header>
+                {favView === false ? 'favorites' : 'trending'}
+              </button>
+            </div>
             <div className='repo-results'>
               <RepoResults repoList={favView === false ? repoList : favList} />
             </div>
