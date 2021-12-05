@@ -1,10 +1,16 @@
 import Issue from './Issue';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { RepoContext } from '../RepoContext';
 
 function RepoIssues({ repository }) {
   const { issueData, setBugLabel } = useContext(RepoContext);
-
+  const [maxIssues, setMaxIssues] = useState(4);
+  useEffect(() => {
+    setMaxIssues(4);
+  }, [repository]);
+  const seeMore = () => {
+    setMaxIssues(maxIssues + 4);
+  };
   // array to hold cleaned issues without bots
   let updatedIssueData = [];
   if (issueData === undefined) {
@@ -29,7 +35,7 @@ function RepoIssues({ repository }) {
           if (data.user.type !== 'Bot') updatedIssueData.push(data);
           return updatedIssueData;
         })}
-        {updatedIssueData.slice(0, 4).map((issue) => {
+        {updatedIssueData.slice(0, maxIssues).map((issue) => {
           // if (issue.labels.length > 0) {
           //   issue.labels.forEach((label) => {
           //     if (label.name === 'bug') {
@@ -41,6 +47,7 @@ function RepoIssues({ repository }) {
           // }
           return <Issue issue={issue}></Issue>;
         })}
+        <button onClick={() => seeMore()}>see more</button>
       </div>
     );
   }
