@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { Route } from 'react-router';
 import ghLogo from './assets/gh-logo.png';
 import repoLogo from './assets/repository.png';
+import heartGrey from './assets/heart-grey.png';
+import trending from './assets/trend.png';
 
 function App() {
   // set trending repository list from webscrape
@@ -82,9 +84,14 @@ function App() {
   const [bugLabel, setBugLabel] = useState(false);
   const [favView, setFavView] = useState(false);
 
-  function setView() {
-    setFavView(!favView);
+  function setViewTrend() {
+    setFavView(false);
   }
+
+  function setViewFav() {
+    setFavView(true);
+  }
+
   const emptyArray = [];
   // save repo favorites
   const [favList, setFavList] = useState(() => {
@@ -154,18 +161,25 @@ function App() {
             </header>
             <div className='optionsBar'>
               <h2>{favView === false ? 'Trending' : 'Favorites'}</h2>
-              <div className='filterHolder'>
-                <button
-                  onClick={() => {
-                    setView();
-                  }}
-                >
-                  {favView === false ? 'favorites' : 'trending'}
-                </button>
-              </div>
+              <div className='filterHolder'></div>
             </div>
             <div className='sideBar'>
-              <img src={repoLogo} />
+              <img id='logo' src={repoLogo} />
+              <button
+                onClick={() => {
+                  setViewTrend();
+                }}
+              >
+                <img src={trending} />
+              </button>
+              <button
+                onClick={() => {
+                  setViewFav();
+                }}
+              >
+                <img src={heartGrey} />
+                {/* {favView === false ? 'favorites' : 'trending'} */}
+              </button>
             </div>
             <div className='repo-results'>
               <RepoResults repoList={favView === false ? repoList : favList} />

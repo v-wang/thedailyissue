@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
 
 body {
   margin: 0;
@@ -41,13 +41,15 @@ header {
 
 header h1 {
   margin: 0px;
-  font-size: 21px;
-  font-family: 'Press Start 2P';
-  word-spacing: -10px;
+  font-size: 38px;
+  font-family: 'Ubuntu Mono', monospace;
+  color: #34495e;
+  padding-top: 2px;
+  line-height: 35px;
 }
 
 header h5 {
-  margin-top: 8px;
+  margin-top: 18px;
   font-weight: 400;
 }
 
@@ -84,6 +86,28 @@ header h5 {
   grid-column: 1/2;
   background-color: white;
   max-width: 60px;
+}
+
+.sideBar button {
+  background-color: white;
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.sideBar button:hover {
+  cursor: pointer;
+}
+
+#logo {
+  border-bottom: 1px solid #d6dbdf;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+}
+.sideBar button img {
+  height: 22px;
+  border: none;
+  margin-top: 26px;
 }
 
 .sideBar img {
@@ -342,9 +366,29 @@ footer h4 {
 }
 
 .issuesHolder button {
-  margin: 0 auto;
+  background: none;
+  border: none;
+  width: 100%;
   display: block;
-  margin-top: 25px;
+  margin-top: 20px;
+  height: 30px;
+}
+
+.issuesHolder button:hover {
+  cursor: pointer;
+}
+
+.issuesHolder button div {
+  border-bottom: 1px solid #d6dbdf;
+  width: 100%;
+}
+
+.issuesHolder button div h3 {
+  width: 70px;
+  margin: 0 auto;
+  margin-bottom: -7px;
+  background-color: white;
+  color: #34495e;
 }
 
 .issue {

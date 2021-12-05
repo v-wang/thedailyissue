@@ -71,7 +71,11 @@ function RepoIssues({ repository, bugCount, setBugCount }) {
             ></Issue>
           );
         })}
-        <button onClick={() => seeMore()}>see more</button>
+        <button onClick={() => seeMore()}>
+          <div>
+            <h3>see more</h3>
+          </div>
+        </button>
       </div>
     );
   }
