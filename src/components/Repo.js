@@ -56,9 +56,10 @@ function Repo({ repo }) {
         }}
       >
         <div className='repo-card' id={repoData.id}>
-          <img src={repoData.owner.avatar_url}></img>
-
-          <h4>{repoData.name}</h4>
+          <div className='repo-card-top'>
+            <img src={repoData.owner.avatar_url}></img>
+            <h4>{repoData.name}</h4>
+          </div>
 
           <p>
             {repoData.description === null

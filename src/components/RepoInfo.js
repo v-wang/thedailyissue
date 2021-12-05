@@ -33,12 +33,12 @@ function RepoInfo({ repository }) {
         </div>
       </div>
       <p>
-        <b>Owner:</b> {repository.owner.login}
+        <b>Owner :&nbsp;&nbsp;</b> {repository.owner.login}
       </p>
 
       {repository.language === null ? null : (
         <p>
-          <b>Language:</b> {repository.language}
+          <b>Language :&nbsp;&nbsp;</b> {repository.language}
         </p>
       )}
 

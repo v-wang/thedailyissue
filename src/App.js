@@ -155,7 +155,7 @@ function App() {
               >
                 <div>
                   <img src={ghLogo} />
-                  <h4>built by v-wang</h4>
+                  <h4>v-wang</h4>
                 </div>
               </a>
             </footer>
