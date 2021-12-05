@@ -9,21 +9,23 @@ function RepoInfo({ repository }) {
 
   return (
     <div className='repoGenInfo'>
-      <button
-        onClick={() => {
-          saveFav(`/${repository.full_name}`);
-        }}
-      >
-        <img
-          src={
-            checkSaved(`/${repository.full_name}`) === false ? heart : heartRed
-          }
-          id={repository.id + 1}
-        />
-      </button>
       <div className='genInfoTop'>
         <img src={repository.owner.avatar_url} />
         <div className='titleLink'>
+          <button
+            onClick={() => {
+              saveFav(`/${repository.full_name}`);
+            }}
+          >
+            <img
+              src={
+                checkSaved(`/${repository.full_name}`) === false
+                  ? heart
+                  : heartRed
+              }
+              id={repository.id + 1}
+            />
+          </button>
           <h1>{repository.name}</h1>
           <a href={repository.html_url} target='blank' rel='nonreferrer'>
             ({repository.html_url})

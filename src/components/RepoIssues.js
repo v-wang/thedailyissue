@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { RepoContext } from '../RepoContext';
 
 function RepoIssues({ repository }) {
-  const { issueData } = useContext(RepoContext);
+  const { issueData, setBugLabel } = useContext(RepoContext);
 
   // array to hold cleaned issues without bots
   let updatedIssueData = [];
@@ -24,11 +24,21 @@ function RepoIssues({ repository }) {
     return (
       <div className='issuesHolder'>
         <h2>Issues:</h2>
+
         {issueData.forEach((data) => {
           if (data.user.type !== 'Bot') updatedIssueData.push(data);
           return updatedIssueData;
         })}
         {updatedIssueData.slice(0, 4).map((issue) => {
+          // if (issue.labels.length > 0) {
+          //   issue.labels.forEach((label) => {
+          //     if (label.name === 'bug') {
+          //       return setBugLabel(true);
+          //     } else if (label.name != 'bug') {
+
+          //     }
+          //   });
+          // }
           return <Issue issue={issue}></Issue>;
         })}
       </div>

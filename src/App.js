@@ -4,6 +4,7 @@ import { RepoContext } from './RepoContext';
 import { useState, useEffect } from 'react';
 import { Route } from 'react-router';
 import ghLogo from './assets/gh-logo.png';
+import repoLogo from './assets/repository.png';
 
 function App() {
   // set trending repository list from webscrape
@@ -57,12 +58,26 @@ function App() {
       })
       .then(function (response) {
         setIssueData(response);
+
+        // issueData.forEach((issue) => {
+        //   const issueLabels = issue.labels;
+        //   if (issueLabels.length > 0) {
+        //     issueLabels.forEach((label) => {
+        //       if (label.name.toLowerCase() === 'bug') {
+        //         setBugLabel(true);
+        //       } else {
+        //         setBugLabel(false);
+        //       }
+        //     });
+        //   }
+        // });
       })
       .catch(function (err) {
         console.warn('Error! Something went wrong.', err);
       });
   };
 
+  const [bugLabel, setBugLabel] = useState(false);
   const [favView, setFavView] = useState(false);
 
   function setView() {
@@ -104,6 +119,8 @@ function App() {
           saveFav,
           favList,
           checkSaved,
+          bugLabel,
+          setBugLabel,
         }}
       >
         <div className='app'>
@@ -114,15 +131,19 @@ function App() {
             </header>
             <div className='optionsBar'>
               <h2>{favView === false ? 'Trending' : 'Favorites'}</h2>
-              <button
-                onClick={() => {
-                  setView();
-                }}
-              >
-                {favView === false ? 'favorites' : 'trending'}
-              </button>
+              <div className='filterHolder'>
+                <button
+                  onClick={() => {
+                    setView();
+                  }}
+                >
+                  {favView === false ? 'favorites' : 'trending'}
+                </button>
+              </div>
             </div>
-            <div className='sideBar'></div>
+            <div className='sideBar'>
+              <img src={repoLogo} />
+            </div>
             <div className='repo-results'>
               <RepoResults repoList={favView === false ? repoList : favList} />
             </div>

@@ -43,6 +43,7 @@ header h1 {
 
 header h5 {
   margin-top: 8px;
+  font-weight: 400;
 }
 
 .optionsBar {
@@ -52,6 +53,17 @@ header h5 {
   padding: 10px 30px 10px 10px;
   border-radius: 8px;
   width: 86%;
+  display: flex;
+  height: 50px;
+}
+
+.optionsBar h2 {
+  margin-top: 10px;
+  margin-left: 12px;
+  font-weight: 400;
+  border-right: 1.5px solid lightgray;
+  padding-right: 15px;
+  height: 28px;
 }
 
 .sideBar {
@@ -61,35 +73,55 @@ header h5 {
   max-width: 100px;
 }
 
+.sideBar img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 16px;
+  height: 60px;
+}
+
 .repo-results {
   grid-row: 3/ 4;
   grid-column: 2/3;
   /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
   background-color: #f2f3f3;
-
+  margin-top: 25px;
   overflow-y: scroll;
 }
 
 .repo-results-flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-flow: row wrap;
   align-items: stretch;
+  gap: 20px;
+  padding-right: 10px;
+}
+
+.repo-results-flex a {
+  flex-grow: 2;
 }
 
 .repo-results a {
   text-decoration: none;
+  flex: 1;
 }
 
 .repo-card {
   background-color: white;
   border-radius: 8px;
-  margin: 5px;
-  width: 174px;
-  flex-grow: 1;
+  /* margin: 5px; */
+  /* width: 174px; */
   height: 150px;
   padding: 15px;
+  /* margin-right: 35px; */
+  /* margin-bottom: 15px; */
+
+  /* min-width: 150px; */
+  min-width: 0;
+  max-width: 1fr;
+  color: black;
 }
 
 .repo-card h4 {
@@ -117,6 +149,7 @@ header h5 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  line-height: 18px;
 }
 
 .repo-card img {
@@ -197,6 +230,8 @@ footer h4 {
 
 .repoGenInfo button img {
   height: 18px;
+  margin-top: 4px;
+  margin-left: -4px;
 }
 
 .repoGenInfo button img:hover {
@@ -236,6 +271,7 @@ footer h4 {
   margin-top: 1px;
   color: cyan;
   font-size: 11px;
+  letter-spacing: 0.6px;
 }
 
 .red {
@@ -264,20 +300,27 @@ footer h4 {
   color: #ff5b5b;
 }
 
-.issue {
-  /* min-height: 150px; */
-  margin-top: 20px;
-}
-
-.issueTitle h3 {
+.issuesHolder h3 {
   font-size: 12px;
   margin-top: -8px;
   padding-right: 8px;
 }
 
+.issue {
+  /* min-height: 150px; */
+  margin-top: 20px;
+}
+
 .issueBodyHolder {
   background-color: #e3fded;
   padding: 10px 20px 10px 20px;
+  border-radius: 8px;
+  color: #2ecc71;
+}
+
+.issueBodyHolder h3 {
+  padding-top: 10px;
+  font-weight: 700;
 }
 
 .issueBodyHolder h4 {
@@ -292,6 +335,14 @@ footer h4 {
   text-decoration: none;
 }
 
+.bugC {
+  color: #ff5b5b !important;
+}
+
+.bugBg {
+  background-color: #fff0f5 !important;
+}
+
 .issue p {
   font-size: 12px;
   max-width: inherit;
@@ -301,7 +352,6 @@ footer h4 {
   text-overflow: ellipsis;
   display: -webkit-box;
   /* color: #61d790; */
-  color: #2ecc71;
 }
 @media screen and (max-width: 800px) {
   .repo-results {
