@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
   margin: 0;
@@ -21,7 +22,7 @@ body {
   height: 100vh;
   grid-column: 1 /2;
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 100px 4fr;
   grid-template-rows: 0.5fr 0.5fr 4fr 0.3fr;
   background-color: #f3f3f6;
   /* background-color: #f5f6f6; */
@@ -32,13 +33,17 @@ header {
   grid-column: 2 / 3;
   /* padding: 24px 0px 24px 24px; */
   /* border: 1px solid red; */
-  padding: 24px 30px 24px 10px;
+  padding: 24px 0px 24px 0px;
   height: 55px;
-  width: 86%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 header h1 {
   margin: 0px;
+  font-size: 21px;
+  font-family: 'Press Start 2P';
+  word-spacing: -10px;
 }
 
 header h5 {
@@ -50,11 +55,13 @@ header h5 {
   grid-row: 2/3;
   grid-column: 2/3;
   background-color: white;
-  padding: 10px 30px 10px 10px;
+  /* padding: 10px 30px 10px 10px; */
+  margin-left: 10%;
   border-radius: 8px;
-  width: 86%;
+  width: 80%;
   display: flex;
   height: 50px;
+  margin-top: 20px;
 }
 
 .optionsBar h2 {
@@ -90,22 +97,14 @@ header h5 {
   overflow-y: scroll;
 }
 
-.repo-results-flex {
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: row wrap;
-  align-items: stretch;
-  gap: 20px;
-  padding-right: 10px;
+.repo-results-grid {
+  display: grid;
+  grid-template-columns: ;
 }
 
-.repo-results-flex a {
-  flex-grow: 2;
-}
-
-.repo-results a {
+.repo-results-grid a {
   text-decoration: none;
-  flex: 1;
+  min-width: 150px;
 }
 
 .repo-card {
@@ -119,13 +118,12 @@ header h5 {
   /* margin-bottom: 15px; */
 
   /* min-width: 150px; */
-  min-width: 0;
-  max-width: 1fr;
+
   color: black;
 }
 
 .repo-card h4 {
-  width: 120px;
+  /* width: 120px; */
   font-size: 12px;
   /* border: 1px solid red; */
   /* color: white; */
@@ -133,6 +131,7 @@ header h5 {
   float: left;
   margin-left: 10px;
   margin-top: 0;
+  word-wrap: break-word;
 }
 
 .repo-card h3 {
@@ -142,7 +141,7 @@ header h5 {
 .repo-card p {
   font-size: 12px;
   margin-top: 52px;
-  width: inherit;
+  /* width: inherit; */
   /* color: white; */
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
@@ -188,13 +187,12 @@ footer h4 {
 /* REPO INFO SECTION */
 .repo-info-holder {
   /* color: #00ff41; */
-
   grid-column: 2/3;
   height: 100vh;
   overflow-y: scroll;
-  min-width: 300px;
+  min-width: 250px;
   padding: 20px;
-  padding-top: 24px;
+  padding-top: 18px;
   padding-right: 35px;
   box-sizing: border-box;
 }

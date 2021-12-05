@@ -5,7 +5,7 @@ import commLine from '../assets/commit-line.png';
 import issueIcon from '../assets/issue.png';
 import issueGreenIcon from '../assets/issue-green.png';
 
-function Issue({ issue }) {
+function Issue({ issue, bugCount, setBugCount }) {
   const [bug, setBug] = useState();
   const [labels, setLabels] = useState();
 
@@ -21,7 +21,7 @@ function Issue({ issue }) {
         }
       });
     }
-  });
+  }, [issueLabels]);
 
   return (
     <div className='issue' id={issue.id}>

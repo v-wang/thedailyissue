@@ -2,7 +2,7 @@ import Issue from './Issue';
 import { useContext, useEffect, useState } from 'react';
 import { RepoContext } from '../RepoContext';
 
-function RepoIssues({ repository }) {
+function RepoIssues({ repository, bugCount, setBugCount }) {
   const { issueData, setBugLabel } = useContext(RepoContext);
   const [maxIssues, setMaxIssues] = useState(4);
   useEffect(() => {
@@ -13,6 +13,24 @@ function RepoIssues({ repository }) {
   };
   // array to hold cleaned issues without bots
   let updatedIssueData = [];
+  // if (issueData !== undefined) {
+  //   issueData.forEach((issue) => {
+  //     if (issue.labels.length > 0) {
+  //       issue.labels.forEach((label) => {
+  //         if (label.name.toLowerCase() === 'bug') {
+  //           console.log('got one');
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
+  // const issueLabels = issueData.labels;
+  // issueLabels.forEach((label) => {
+  //   if (label.name.toLowerCase() === 'bug') {
+  //     console.log('got one');
+  //   }
+  // });
+
   if (issueData === undefined) {
     return (
       <div>
@@ -45,7 +63,13 @@ function RepoIssues({ repository }) {
           //     }
           //   });
           // }
-          return <Issue issue={issue}></Issue>;
+          return (
+            <Issue
+              issue={issue}
+              bugCount={bugCount}
+              setBugCount={setBugCount}
+            ></Issue>
+          );
         })}
         <button onClick={() => seeMore()}>see more</button>
       </div>

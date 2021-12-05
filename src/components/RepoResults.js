@@ -6,7 +6,7 @@ function RepoResults({ repoList }) {
     return <h5>No favorites.</h5>;
   }
   return (
-    <div className='repo-results-flex'>
+    <div className='repo-results-grid'>
       {repoList.map((repo) => {
         return <Repo repo={repo} />;
       })}
