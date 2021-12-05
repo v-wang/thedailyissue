@@ -40,6 +40,8 @@ function App() {
         });
         setRepoList(repoUrlArray);
         setLoadState(true);
+
+        console.log(localStorage.getItem('daily issue favs'));
       })
       .catch(function (err) {
         console.warn('Error! Something went wrong.', err);
@@ -83,10 +85,18 @@ function App() {
   function setView() {
     setFavView(!favView);
   }
-
+  const emptyArray = [];
   // save repo favorites
-  const [favList, setFavList] = useState([]);
-
+  const [favList, setFavList] = useState(() => {
+    if (localStorage.getItem('daily issue favs') !== null) {
+      return JSON.parse(localStorage.getItem('daily issue favs'));
+    } else {
+      return emptyArray;
+    }
+  });
+  // console.log(localStorage.getItem('daily issue favs'));
+  // localStorage.getItem('daily issue favs')
+  console.log(localStorage.getItem('daily issue favs'));
   const saveFav = (name) => {
     if (checkSaved(name) === false) {
       setFavList([...favList, name]);
@@ -95,6 +105,19 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (favList.length > 0) {
+      localStorage.setItem('daily issue favs', JSON.stringify(favList));
+    }
+  }, [favList]);
+
+  // async function saveLocal(data) {
+  //   return Promise.all([saveFav(data)]).then(() => {
+  //     localStorage.setItem('daily issue favs', favList);
+  //   });
+  //   // const saveFavList = await saveFav(data);
+  //   // const toLocal = await localStorage.setItem('daily issue favs', favList);
+  // }
   const checkSaved = (repo) => {
     return favList.some((elem) => elem === repo);
   };

@@ -5,7 +5,7 @@ import heart from '../assets/heart.png';
 import heartRed from '../assets/heart-red.png';
 
 function RepoInfo({ repository }) {
-  const { saveFav, checkSaved } = useContext(RepoContext);
+  const { saveFav, checkSaved, favList } = useContext(RepoContext);
 
   return (
     <div className='repoGenInfo'>
