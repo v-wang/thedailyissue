@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import repoWhite from '../assets/repo-white.png';
 
 function RecentCard(props) {
   const repoInfoHolderElem = document.querySelector('.repo-info-holder');
@@ -12,6 +13,7 @@ function RecentCard(props) {
   }, []);
   return (
     <div>
+      <img src={repoWhite} />
       <Link
         to={{ pathname: `/${repoData.name}`, state: repoData }}
         onClick={() => {
@@ -24,17 +26,8 @@ function RecentCard(props) {
           props.updateRecent(repoData.name);
         }}
       >
-        <div className='repo-card' id={repoData.id}>
-          <div className='repo-card-top'>
-            <img src={repoData.owner.avatar_url}></img>
-            <h4>{repoData.name}</h4>
-          </div>
-
-          <p>
-            {repoData.description === null
-              ? 'No description provided. Follow the repo link to learn more.'
-              : repoData.description}
-          </p>
+        <div className='recent-card' id={repoData.id}>
+          <h4>{repoData.full_name}</h4>
         </div>
       </Link>
     </div>

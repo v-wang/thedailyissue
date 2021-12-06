@@ -25,18 +25,20 @@ function Dashboard({
       <div className='recentRepos'>
         <h2>Recently visited</h2>
         <ul>
-          {/* {recent.length > 0
+          {recent.length > 0
             ? recent.map((repo) => (
-                <RecentCard
-                  repository={repository}
-                  recent={recent}
-                  updateRecent={updateRecent}
-                  fetchIssues={fetchIssues}
-                  setRepository={setRepository}
-                  repo={repo}
-                />
+                <li>
+                  <RecentCard
+                    repository={repository}
+                    recent={recent}
+                    updateRecent={updateRecent}
+                    fetchIssues={fetchIssues}
+                    setRepository={setRepository}
+                    repo={repo}
+                  />
+                </li>
               ))
-            : null} */}
+            : null}
         </ul>
       </div>
       <div className=''></div>

@@ -27,11 +27,11 @@ function RepoInfo({ repository }) {
             />
           </button>
           <h1>{repository.name}</h1>
-          <a href={repository.html_url} target='blank' rel='nonreferrer'>
-            ({repository.html_url})
-          </a>
         </div>
       </div>
+      <a href={repository.html_url} target='blank' rel='nonreferrer'>
+        {repository.html_url}
+      </a>
       <p>
         <b>Owner :&nbsp;&nbsp;</b> {repository.owner.login}
       </p>
