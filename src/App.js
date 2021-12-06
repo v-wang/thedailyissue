@@ -8,6 +8,7 @@ import ghLogo from './assets/gh-logo.png';
 import repoLogo from './assets/repository.png';
 import heartGrey from './assets/heart-grey.png';
 import trending from './assets/trend.png';
+import eventsLogo from './assets/events.png';
 import Dashboard from './components/Dashboard';
 
 function App() {
@@ -140,8 +141,14 @@ function App() {
   // buffer for page loads to prevent undefined load error
   if (loadState === false) {
     return (
-      <div className='app'>
-        <h1>Loading...</h1>
+      <div className='loadScreen'>
+        <div className='loadTop'>
+          <div>
+            <img src={repoLogo} />
+            <h1>The Daily Issue</h1>
+          </div>
+        </div>
+        <h2>Fetching the latest issue . . .</h2>
       </div>
     );
   } else {
@@ -188,6 +195,9 @@ function App() {
               >
                 <img src={heartGrey} />
                 {/* {favView === false ? 'favorites' : 'trending'} */}
+              </button>
+              <button>
+                <img src={eventsLogo} />
               </button>
             </div>
             <div className='repo-results'>

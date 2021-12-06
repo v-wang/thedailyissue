@@ -47,7 +47,7 @@ function Repo({ repo }) {
     return (
       <Link
         to={{ pathname: `/${repoData.name}`, state: repoData }}
-        onClick={() => {
+        onClick={(ev) => {
           // update repository hook to hold repo information on clicked link
           setRepository(repoData);
           // fetch issues when Link is clicked

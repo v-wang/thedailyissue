@@ -6,14 +6,9 @@ import repoWhite from '../assets/repo-white.png';
 function RecentCard(props) {
   const repoInfoHolderElem = document.querySelector('.repo-info-holder');
   const [repoData, setRepoData] = useState(props.repository);
-
-  useEffect(() => {
-    // setRepoData(props.repository);
-    console.log(props.repo);
-  }, []);
   return (
     <div>
-      <img src={repoWhite} />
+      {/* <img src={repoWhite} />
       <Link
         to={{ pathname: `/${repoData.name}`, state: repoData }}
         onClick={() => {
@@ -29,7 +24,7 @@ function RecentCard(props) {
         <div className='recent-card' id={repoData.id}>
           <h4>{repoData.full_name}</h4>
         </div>
-      </Link>
+      </Link> */}
     </div>
   );
 }
