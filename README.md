@@ -8,6 +8,8 @@
 <br>
 [Tech Stack](#tech-stack)
 <br>
+[Data Sources](#data-sources)
+<br>
 [APIs](#apis-used)
 <br>
 [Development](#development)
@@ -80,43 +82,43 @@ In order to generate the latest trending list from GitHub, the repository name i
 
 ```
 {
-"url": "https://api.github.com/repos/penpot/penpot/issues/1393",
-"repository_url": "https://api.github.com/repos/penpot/penpot",
-"labels_url": "https://api.github.com/repos/penpot/penpot/issues/1393/labels{/name}",
-"comments_url": "https://api.github.com/repos/penpot/penpot/issues/1393/comments",
-"events_url": "https://api.github.com/repos/penpot/penpot/issues/1393/events",
-"html_url": "https://github.com/penpot/penpot/issues/1393",
-"id": 1072115839,
-"node_id": "I_kwDOAugo2c4_5zB_",
-"number": 1393,
-"title": "Update properties of a component",
-"user": {
-"login": "NicolasLeboeuf",
-"id": 62602652,
-"node_id": "MDQ6VXNlcjYyNjAyNjUy",
-"avatar_url": "https://avatars.githubusercontent.com/u/62602652?v=4",
-"gravatar_id": "",
-"url": "https://api.github.com/users/NicolasLeboeuf",
-"html_url": "https://github.com/NicolasLeboeuf",
-"followers_url": "https://api.github.com/users/NicolasLeboeuf/followers",
-"following_url": "https://api.github.com/users/NicolasLeboeuf/following{/other_user}",
-"gists_url": "https://api.github.com/users/NicolasLeboeuf/gists{/gist_id}",
-"starred_url": "https://api.github.com/users/NicolasLeboeuf/starred{/owner}{/repo}",
-"subscriptions_url": "https://api.github.com/users/NicolasLeboeuf/subscriptions",
-"organizations_url": "https://api.github.com/users/NicolasLeboeuf/orgs",
-"repos_url": "https://api.github.com/users/NicolasLeboeuf/repos",
-"events_url": "https://api.github.com/users/NicolasLeboeuf/events{/privacy}",
-"received_events_url": "https://api.github.com/users/NicolasLeboeuf/received_events",
-"type": "User",
-"site_admin": false
-},
+  "url": "https://api.github.com/repos/penpot/penpot/issues/1393",
+  "repository_url": "https://api.github.com/repos/penpot/penpot",
+  "labels_url": "https://api.github.com/repos/penpot/penpot/issues/1393/labels{/name}",
+  "comments_url": "https://api.github.com/repos/penpot/penpot/issues/1393/comments",
+  "events_url": "https://api.github.com/repos/penpot/penpot/issues/1393/events",
+  "html_url": "https://github.com/penpot/penpot/issues/1393",
+  "id": 1072115839,
+  "node_id": "I_kwDOAugo2c4_5zB_",
+  "number": 1393,
+  "title": "Update properties of a component",
+  "user": {
+  "login": "NicolasLeboeuf",
+  "id": 62602652,
+  "node_id": "MDQ6VXNlcjYyNjAyNjUy",
+  "avatar_url": "https://avatars.githubusercontent.com/u/62602652?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/NicolasLeboeuf",
+  "html_url": "https://github.com/NicolasLeboeuf",
+  "followers_url": "https://api.github.com/users/NicolasLeboeuf/followers",
+  "following_url": "https://api.github.com/users/NicolasLeboeuf/following{/other_user}",
+  "gists_url": "https://api.github.com/users/NicolasLeboeuf/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/NicolasLeboeuf/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/NicolasLeboeuf/subscriptions",
+  "organizations_url": "https://api.github.com/users/NicolasLeboeuf/orgs",
+  "repos_url": "https://api.github.com/users/NicolasLeboeuf/repos",
+  "events_url": "https://api.github.com/users/NicolasLeboeuf/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/NicolasLeboeuf/received_events",
+  "type": "User",
+  "site_admin": false
+}
 ```
 
 ## Development
 
 [Notion](https://thewangspace.notion.site/48e277dac59e46f9b8bebbaef2d71bea?v=04063f1cc9f845e1a4daa3053e5f90e0)
 
-### Wireframes
+- ### Wireframes
 
 [Figma](https://www.figma.com/file/CKjjvOEtZat49l9a3raGwO/gh-trending-issues)
 
