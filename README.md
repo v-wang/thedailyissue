@@ -120,7 +120,7 @@ In order to generate the latest trending list from GitHub, the repository name i
 
 When you click on a repository, you'll be given general information from GitHub. Icons in The Daily Issue typically correspond to the icons used in GitHub.
 
-<img src="./src/assets/screenshot-1.png" alt="gif of simOn gameplay" width="200" margin="0 auto">
+<img src="./src/assets/screenshot-1.png" alt="gif of simOn gameplay" width="250" margin="0 auto">
 
 In order from left to right:
 
@@ -128,6 +128,10 @@ In order from left to right:
 - fork count
 - watch count
 - open issues count
+
+Issues that have a label of 'bug' are marked as red:
+
+<img src="./src/assets/screenshot-2.png" alt="gif of simOn gameplay" width="250" margin="0 auto">
 
 ## Development
 
