@@ -2,9 +2,6 @@ import React from 'react';
 import stargazer from '../assets/star.png';
 import watch from '../assets/eye.png';
 import fork from '../assets/fork.png';
-import ghLogo from '../assets/gh-logo.png';
-import repoIcon from '../assets/repository.png';
-import commLine from '../assets/commit-line.png';
 import issueIcon from '../assets/issue.png';
 
 function RepoIcons({ repository }) {
@@ -21,20 +18,20 @@ function RepoIcons({ repository }) {
   return (
     <div className='iconHolder'>
       <div className='icons'>
-        <img src={stargazer} />
+        <img src={stargazer} alt='star icon' />
         <h5>{repository.stargazers_count}</h5>
       </div>
       <div className='icons'>
-        <img src={fork} />
+        <img src={fork} alt='fork icon' />
         <h5>{repository.forks_count}</h5>
       </div>
       <div className='icons'>
-        <img src={watch} />
+        <img src={watch} alt='watch eye icon' />
         {/* subscribers_count is the watch count */}
         <h5>{repository.subscribers_count}</h5>
       </div>
       <div className='icons'>
-        <img src={issueIcon} />
+        <img src={issueIcon} alt='issue icon' />
         <h5>{repository.open_issues_count}</h5>
       </div>
     </div>

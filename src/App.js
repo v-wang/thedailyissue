@@ -1,6 +1,5 @@
 import RepoResults from './components/RepoResults';
 import RepoInfoHolder from './components/RepoInfoHolder';
-import Recent from './components/Dashboard';
 import { RepoContext } from './RepoContext';
 import { useState, useEffect } from 'react';
 import { Route } from 'react-router';
@@ -22,6 +21,11 @@ function App() {
   // set issue data list for given respository
   const [issueData, setIssueData] = useState();
 
+  // determine if issue is bug or not
+  const [bugLabel, setBugLabel] = useState(false);
+
+  // determine if fav view should be toggled or not
+  const [favView, setFavView] = useState(false);
   // webscrape github trending repos
   useEffect(() => {
     fetch('https://sheltered-sea-91500.herokuapp.com/github.com/trending')
@@ -29,32 +33,24 @@ function App() {
         return response.text();
       })
       .then(function (html) {
-        // Convert the HTML string into a document object
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, 'text/html');
-        // holds repo URL names
         var repoUrlArray = [];
         let repos = doc.querySelectorAll('.Box-row');
 
         repos.forEach((repo) => {
-          // console.log(repo.querySelector('h1 > a'));
           let repoUrl = repo.querySelector('h1 > a').getAttribute('href');
-          // console.log(`https://www.github.com${repoURL}`);
-          // console.log(`https://api.github.com/repos${repoURL}/issues`);
-          // console.log('###');
           repoUrlArray.push(repoUrl);
         });
         setRepoList(repoUrlArray);
         setLoadState(true);
-
-        console.log(localStorage.getItem('daily issue favs'));
       })
       .catch(function (err) {
         console.warn('Error! Something went wrong.', err);
       });
   }, []);
 
-  // used for onClick when Link route for repo is clicked
+  // used for onClick when Link route for repo is clicked to fetch issues for repo
   const fetchIssues = (repo) => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
     let auth = { Authorization: `Basic ${credentials}` };
@@ -66,48 +62,35 @@ function App() {
       })
       .then(function (response) {
         setIssueData(response);
-
-        // issueData.forEach((issue) => {
-        //   const issueLabels = issue.labels;
-        //   if (issueLabels.length > 0) {
-        //     issueLabels.forEach((label) => {
-        //       if (label.name.toLowerCase() === 'bug') {
-        //         setBugLabel(true);
-        //       } else {
-        //         setBugLabel(false);
-        //       }
-        //     });
-        //   }
-        // });
       })
       .catch(function (err) {
         console.warn('Error! Something went wrong.', err);
       });
   };
 
-  const [bugLabel, setBugLabel] = useState(false);
-  const [favView, setFavView] = useState(false);
-
+  // set to trending view
   function setViewTrend() {
     setFavView(false);
   }
 
+  // set to favorite view
   function setViewFav() {
     setFavView(true);
   }
 
-  const emptyArray = [];
+  // empty array for favs for initial state if there are no favorites
+  const emptyFavArray = [];
+
   // save repo favorites
   const [favList, setFavList] = useState(() => {
     if (localStorage.getItem('daily issue favs') !== null) {
       return JSON.parse(localStorage.getItem('daily issue favs'));
     } else {
-      return emptyArray;
+      return emptyFavArray;
     }
   });
-  // console.log(localStorage.getItem('daily issue favs'));
-  // localStorage.getItem('daily issue favs')
 
+  // setFavList handler to save recent fav list
   const saveFav = (name) => {
     if (checkSaved(name) === false) {
       setFavList([...favList, name]);
@@ -116,36 +99,34 @@ function App() {
     }
   };
 
+  // update local storage when favList is updated - favList dependency because we want it to update only when that changes
   useEffect(() => {
     if (favList.length >= 0) {
       localStorage.setItem('daily issue favs', JSON.stringify(favList));
     }
   }, [favList]);
 
-  // async function saveLocal(data) {
-  //   return Promise.all([saveFav(data)]).then(() => {
-  //     localStorage.setItem('daily issue favs', favList);
-  //   });
-  //   // const saveFavList = await saveFav(data);
-  //   // const toLocal = await localStorage.setItem('daily issue favs', favList);
-  // }
+  // check to see if a repo has already been saved
+  // used to determine styles/elements and to help savFav handler function for favList
   const checkSaved = (repo) => {
     return favList.some((elem) => elem === repo);
   };
 
+  // TODO: new feature to track recently viewed repos
   const [recent, setRecent] = useState([]);
 
+  // update recent state handler
   const updateRecent = (repo) => {
     setRecent([...recent, repo]);
   };
 
-  // buffer for page loads to prevent undefined load error
+  // buffer for page loads when app is fetching for info
   if (loadState === false) {
     return (
       <div className='loadScreen'>
         <div className='loadTop'>
           <div>
-            <img src={repoLogo} />
+            <img src={repoLogo} alt='repository logo' />
             <h1>The Daily Issue</h1>
           </div>
         </div>
@@ -181,27 +162,26 @@ function App() {
               <div className='filterHolder'></div>
             </div>
             <div className='sideBar'>
-              <img id='logo' src={repoLogo} />
+              <img id='logo' src={repoLogo} alt='repository logo' />
               <button
                 onClick={() => {
                   setViewTrend();
                 }}
               >
-                <img src={trending} />
+                <img src={trending} alt='trending logo' />
               </button>
               <button
                 onClick={() => {
                   setViewFav();
                 }}
               >
-                <img src={heartGrey} />
-                {/* {favView === false ? 'favorites' : 'trending'} */}
+                <img src={heartGrey} alt='grey heart icon' />
               </button>
               <button>
-                <img src={eventsLogo} />
+                <img src={eventsLogo} alt='events icon' />
               </button>
               <button>
-                <img src={historyLogo} />
+                <img src={historyLogo} alt='history icon' />
               </button>
             </div>
             <div className='repo-results'>
@@ -221,7 +201,7 @@ function App() {
                 rel='noreferrer'
               >
                 <div>
-                  <img src={ghLogo} />
+                  <img src={ghLogo} alt='GitHub logo' />
                   <h4>v-wang</h4>
                 </div>
               </a>

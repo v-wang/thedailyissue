@@ -33,15 +33,24 @@ We're always up to date on the daily trending repository list from GitHub. To re
 
 ## APIs Used
 
+[GitHub REST API](https://docs.github.com/en/rest)
+
+## Data Sources
+
+- [GitHub Trending](https://github.com/trending)
+- [r/hackathon](https://www.reddit.com/r/hackathon/)
+
 ### Example data from web scraping:
 
 ### Example data from GitHub API:
 
 ## Development
 
+[Notion](https://thewangspace.notion.site/48e277dac59e46f9b8bebbaef2d71bea?v=04063f1cc9f845e1a4daa3053e5f90e0)
+
 ### Wireframes
 
-### Components
+[Figma](https://www.figma.com/file/CKjjvOEtZat49l9a3raGwO/gh-trending-issues)
 
 ## Credits
 

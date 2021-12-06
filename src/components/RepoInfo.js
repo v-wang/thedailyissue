@@ -1,16 +1,16 @@
 import React from 'react';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { RepoContext } from '../RepoContext';
 import heart from '../assets/heart.png';
 import heartRed from '../assets/heart-red.png';
 
 function RepoInfo({ repository }) {
-  const { saveFav, checkSaved, favList } = useContext(RepoContext);
+  const { saveFav, checkSaved } = useContext(RepoContext);
 
   return (
     <div className='repoGenInfo'>
       <div className='genInfoTop'>
-        <img src={repository.owner.avatar_url} />
+        <img src={repository.owner.avatar_url} alt='repository owner avatar' />
         <div className='titleLink'>
           <button
             onClick={() => {
@@ -24,6 +24,7 @@ function RepoInfo({ repository }) {
                   : heartRed
               }
               id={repository.id + 1}
+              alt={repository.full_name}
             />
           </button>
           <h1>{repository.name}</h1>

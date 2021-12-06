@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
-import { useState, useContext } from 'react';
-import { RepoContext } from '../RepoContext';
+import { useState } from 'react';
 import commLine from '../assets/commit-line.png';
 import issueGrey from '../assets/issue-grey.png';
-import issueIcon from '../assets/issue.png';
-import issueGreenIcon from '../assets/issue-green.png';
 
 function Issue({ issue, bugCount, setBugCount }) {
   const [bug, setBug] = useState();
-  const [labels, setLabels] = useState();
 
-  const { bugLabel, setBugLabel } = useContext(RepoContext);
   const issueLabels = issue.labels;
   // const issueElem = document.getElementById(issue.id);
   useEffect(() => {
@@ -27,7 +22,7 @@ function Issue({ issue, bugCount, setBugCount }) {
   return (
     <div className='issue' id={issue.id}>
       <div className='issueTitle'>
-        <img src={issueGrey} />
+        <img src={issueGrey} alt='grey issue icon' />
         <h3>
           {new Date(issue.created_at)
             .toUTCString()
@@ -39,14 +34,11 @@ function Issue({ issue, bugCount, setBugCount }) {
       <div
         className={`issueBodyHolder + ${bug === true ? 'bugBg bugC' : null}`}
       >
-        {/* setting bug red is working, need to just make the specific card ID red */}
-
         <h3>{issue.title}</h3>
-
         <p>{issue.body === null ? 'No description provided.' : issue.body}</p>
         {issue.body !== null ? (
           <div className='gh-issue-link'>
-            <img src={commLine} />
+            <img src={commLine} alt='button icon' />
             <a href={issue.html_url} target='blank' rel='nonreferrer'>
               <h4>more info</h4>
             </a>

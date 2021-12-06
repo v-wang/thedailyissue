@@ -8,7 +8,7 @@ function RepoResults({ repoList }) {
   return (
     <div className='repo-results-grid'>
       {repoList.map((repo) => {
-        return <Repo repo={repo} />;
+        return <Repo repo={repo} key={Math.floor(Math.random() * 10000)} />;
       })}
     </div>
   );

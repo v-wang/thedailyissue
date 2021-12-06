@@ -3,33 +3,18 @@ import { useContext, useEffect, useState } from 'react';
 import { RepoContext } from '../RepoContext';
 
 function RepoIssues({ repository, bugCount, setBugCount }) {
-  const { issueData, setBugLabel } = useContext(RepoContext);
+  const { issueData } = useContext(RepoContext);
   const [maxIssues, setMaxIssues] = useState(4);
+
   useEffect(() => {
     setMaxIssues(4);
   }, [repository]);
   const seeMore = () => {
     setMaxIssues(maxIssues + 4);
   };
+
   // array to hold cleaned issues without bots
   let updatedIssueData = [];
-  // if (issueData !== undefined) {
-  //   issueData.forEach((issue) => {
-  //     if (issue.labels.length > 0) {
-  //       issue.labels.forEach((label) => {
-  //         if (label.name.toLowerCase() === 'bug') {
-  //           console.log('got one');
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
-  // const issueLabels = issueData.labels;
-  // issueLabels.forEach((label) => {
-  //   if (label.name.toLowerCase() === 'bug') {
-  //     console.log('got one');
-  //   }
-  // });
 
   if (issueData === undefined) {
     return (
@@ -54,15 +39,6 @@ function RepoIssues({ repository, bugCount, setBugCount }) {
           return updatedIssueData;
         })}
         {updatedIssueData.slice(0, maxIssues).map((issue) => {
-          // if (issue.labels.length > 0) {
-          //   issue.labels.forEach((label) => {
-          //     if (label.name === 'bug') {
-          //       return setBugLabel(true);
-          //     } else if (label.name != 'bug') {
-
-          //     }
-          //   });
-          // }
           return (
             <Issue
               issue={issue}

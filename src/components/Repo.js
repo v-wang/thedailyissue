@@ -59,7 +59,7 @@ function Repo({ repo }) {
       >
         <div className='repo-card' id={repoData.id}>
           <div className='repo-card-top'>
-            <img src={repoData.owner.avatar_url}></img>
+            <img src={repoData.owner.avatar_url} alt='repo owner avatar'></img>
             <h4>{repoData.name}</h4>
           </div>
 
