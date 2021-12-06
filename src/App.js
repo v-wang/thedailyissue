@@ -1,5 +1,6 @@
 import RepoResults from './components/RepoResults';
 import RepoInfoHolder from './components/RepoInfoHolder';
+import Recent from './components/Dashboard';
 import { RepoContext } from './RepoContext';
 import { useState, useEffect } from 'react';
 import { Route } from 'react-router';
@@ -7,6 +8,7 @@ import ghLogo from './assets/gh-logo.png';
 import repoLogo from './assets/repository.png';
 import heartGrey from './assets/heart-grey.png';
 import trending from './assets/trend.png';
+import Dashboard from './components/Dashboard';
 
 function App() {
   // set trending repository list from webscrape
@@ -103,7 +105,7 @@ function App() {
   });
   // console.log(localStorage.getItem('daily issue favs'));
   // localStorage.getItem('daily issue favs')
-  console.log(localStorage.getItem('daily issue favs'));
+
   const saveFav = (name) => {
     if (checkSaved(name) === false) {
       setFavList([...favList, name]);
@@ -113,7 +115,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (favList.length > 0) {
+    if (favList.length >= 0) {
       localStorage.setItem('daily issue favs', JSON.stringify(favList));
     }
   }, [favList]);
@@ -127,6 +129,12 @@ function App() {
   // }
   const checkSaved = (repo) => {
     return favList.some((elem) => elem === repo);
+  };
+
+  const [recent, setRecent] = useState([]);
+
+  const updateRecent = (repo) => {
+    setRecent([...recent, repo]);
   };
 
   // buffer for page loads to prevent undefined load error
@@ -151,6 +159,7 @@ function App() {
           checkSaved,
           bugLabel,
           setBugLabel,
+          updateRecent,
         }}
       >
         <div className='app'>
@@ -184,6 +193,13 @@ function App() {
             <div className='repo-results'>
               <RepoResults repoList={favView === false ? repoList : favList} />
             </div>
+            <Dashboard
+              repository={repository}
+              recent={recent}
+              updateRecent={updateRecent}
+              fetchIssu={fetchIssues}
+              setRepository={setRepository}
+            />
             <footer>
               <a
                 href='https://github.com/v-wang'

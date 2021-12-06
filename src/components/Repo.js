@@ -11,7 +11,7 @@ function Repo({ repo }) {
   const [repoData, setRepoData] = useState();
 
   // CONTEXT FROM APP.JS - api call to fetch issue data when link is clicked
-  const { fetchIssues } = useContext(RepoContext);
+  const { fetchIssues, updateRecent } = useContext(RepoContext);
 
   // CONTEXT FROM APP.JS - update repository hook to store current selected repository data to avoid additional API calls when displaying general information in repo info holder
   const { setRepository } = useContext(RepoContext);
@@ -53,6 +53,8 @@ function Repo({ repo }) {
           // fetch issues when Link is clicked
           fetchIssues(repoData);
           repoInfoHolderElem.scrollTo(0, 0);
+
+          updateRecent(repoData);
         }}
       >
         <div className='repo-card' id={repoData.id}>

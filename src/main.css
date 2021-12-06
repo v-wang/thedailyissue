@@ -23,7 +23,7 @@ body {
   grid-column: 1 /2;
   display: grid;
   grid-template-columns: 60px 4fr;
-  grid-template-rows: 0.5fr 0.5fr 4fr 0.3fr;
+  grid-template-rows: 0.5fr 0.3fr 4fr 1fr 0.3fr;
   background-color: #f3f3f6;
   /* background-color: #f5f6f6; */
 }
@@ -43,7 +43,7 @@ header h1 {
   margin: 0px;
   font-size: 38px;
   font-family: 'Ubuntu Mono', monospace;
-  color: #34495e;
+  color: #363f66;
   padding-top: 2px;
   line-height: 35px;
 }
@@ -56,24 +56,21 @@ header h5 {
 .optionsBar {
   grid-row: 2/3;
   grid-column: 2/3;
-  background-color: white;
-  /* padding: 10px 30px 10px 10px; */
   margin-left: 10%;
   border-radius: 8px;
   width: 80%;
   display: flex;
-  height: 50px;
+  height: 42px;
   margin-top: 20px;
 }
 
 .optionsBar h2 {
   margin-top: 13px;
-  margin-left: 12px;
   font-weight: 400;
-  border-right: 1.5px solid lightgray;
   padding-right: 15px;
   height: 28px;
   font-size: 20px;
+  font-weight: 800;
 }
 
 .filterHolder button {
@@ -118,7 +115,7 @@ header h5 {
 }
 
 .repo-results {
-  grid-row: 3/ 4;
+  grid-row: 3/4;
   grid-column: 2/3;
   /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
@@ -127,6 +124,7 @@ header h5 {
   overflow-y: scroll;
   margin-left: 10%;
   width: 80%;
+  margin-bottom: 25px;
 }
 
 .repo-results-grid {
@@ -196,8 +194,8 @@ header h5 {
 }
 
 footer {
-  background: #34495e;
-  grid-row: 4/5;
+  background: #363f66;
+  grid-row: 5/6;
   grid-column: 1/2;
   max-width: 60px;
 }
@@ -446,4 +444,25 @@ footer h4 {
 @media screen and (max-width: 800px) {
   .repo-results {
   }
+}
+
+.dashboard {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, minmax(180px, auto));
+  margin-left: 10%;
+  width: 80%;
+  background-color: #363f66;
+  border-radius: 8px;
+}
+
+.dashboard h2 {
+  font-size: 20px;
+}
+
+.recentRepos {
+  height: 150px;
+  padding: 15px;
+  box-sizing: border-box;
+  color: white;
 }
