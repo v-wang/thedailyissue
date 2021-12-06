@@ -131,7 +131,7 @@ In order from left to right:
 
 Issues that have a label of 'bug' are marked as red:
 
-<img src="./src/assets/screenshot-2.png" alt="gif of simOn gameplay" width="250" margin="0 auto">
+<img src="./src/assets/screenshot-2.png" alt="gif of simOn gameplay" width="350" margin="0 auto">
 
 ## Development
 
