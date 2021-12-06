@@ -45,12 +45,12 @@ function Issue({ issue, bugCount, setBugCount }) {
 
         <p>{issue.body === null ? 'No description provided.' : issue.body}</p>
         {issue.body !== null ? (
-          <>
+          <div className='gh-issue-link'>
             <img src={commLine} />
             <a href={issue.html_url} target='blank' rel='nonreferrer'>
               <h4>more info</h4>
             </a>
-          </>
+          </div>
         ) : null}
       </div>
     </div>

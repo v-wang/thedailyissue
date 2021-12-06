@@ -406,6 +406,8 @@ footer h4 {
 
 .issueBodyHolder img {
   height: 30px;
+  display: block;
+  margin: 0 auto;
 }
 
 .issueBodyHolder h3 {
@@ -414,12 +416,17 @@ footer h4 {
 }
 
 .issueBodyHolder h4 {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 70px;
   text-align: center;
-  padding: 5px 10px 5px 10px;
-  font-size: 12px;
-  margin-top: 0px;
+  padding: 1px 5px 1px 5px;
+  font-size: 10px;
+  background: #d6dbdf;
+  color: black;
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-top: -6px;
+  margin-bottom: 8px;
 }
 
 .issueBodyHolder a {
