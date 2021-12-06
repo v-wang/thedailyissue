@@ -26,6 +26,7 @@ function App() {
 
   // determine if fav view should be toggled or not
   const [favView, setFavView] = useState(false);
+
   // webscrape github trending repos
   useEffect(() => {
     fetch('https://sheltered-sea-91500.herokuapp.com/github.com/trending')

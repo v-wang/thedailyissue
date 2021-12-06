@@ -4,10 +4,13 @@ import commLine from '../assets/commit-line.png';
 import issueGrey from '../assets/issue-grey.png';
 
 function Issue({ issue, bugCount, setBugCount }) {
+  // state to help with syling changes for bug issues
   const [bug, setBug] = useState();
 
+  // all labels for each issue
   const issueLabels = issue.labels;
-  // const issueElem = document.getElementById(issue.id);
+
+  // when issueLabels changes, checks to see if any labels in the list contain 'bug'
   useEffect(() => {
     if (issueLabels !== undefined) {
       setBug(false);

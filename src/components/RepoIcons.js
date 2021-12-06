@@ -5,8 +5,12 @@ import fork from '../assets/fork.png';
 import issueIcon from '../assets/issue.png';
 
 function RepoIcons({ repository }) {
+  // get icon holder for metrics for repo
   const iconHolderH5s = document.querySelectorAll('.icons > h5');
+
   iconHolderH5s.forEach((elem) => {
+    // threshold set for number of issues
+    // currently being used by star, fork and watch count too
     if (elem.innerText <= 10) {
       elem.setAttribute('class', 'red');
     } else if (elem.innerText <= 35) {

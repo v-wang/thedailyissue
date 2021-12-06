@@ -3,9 +3,13 @@ import { useContext, useEffect, useState } from 'react';
 import { RepoContext } from '../RepoContext';
 
 function RepoIssues({ repository, bugCount, setBugCount }) {
+  // from App component
   const { issueData } = useContext(RepoContext);
+
+  // state to determine array length for show more button
   const [maxIssues, setMaxIssues] = useState(4);
 
+  // handles max issues change
   useEffect(() => {
     setMaxIssues(4);
   }, [repository]);

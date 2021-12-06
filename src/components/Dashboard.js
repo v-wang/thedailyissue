@@ -8,16 +8,17 @@ function Dashboard({
   fetchIssues,
   setRepository,
 }) {
+  // set hackathon info list from reddit
   const [hackthonInfo, setHackathonInfo] = useState();
 
+  // fetch reddit data
   useEffect(() => {
-    fetch('https://www.reddit.com/r/hackathon/.json')
+    fetch('https://www.reddit.com/r/hackathon/new/.json')
       .then(function (response) {
         return response.json();
       })
       .then(function (response) {
         setHackathonInfo(response.data.children.splice(0, 3));
-        // const shortList = hackthonInfo.splice(0,2)
       });
   }, []);
 
