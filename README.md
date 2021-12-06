@@ -1,6 +1,6 @@
 # The Daily Issue
 
-<img src="./src/assets/screenshot.png" alt="gif of simOn gameplay" width="600" margin="0 auto">
+<img src="./src/assets/screenshot.png" alt="gif of simOn gameplay" width="1000" margin="0 auto">
 
 [Description](#description)
 <br>
