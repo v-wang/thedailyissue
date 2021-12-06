@@ -12,6 +12,8 @@
 <br>
 [APIs](#apis-used)
 <br>
+[Understanding Repository Information](#understanding-repository-information)
+<br>
 [Development](#development)
 <br>
 [Credits](#credits)
@@ -113,6 +115,19 @@ In order to generate the latest trending list from GitHub, the repository name i
   "site_admin": false
 }
 ```
+
+## Understanding Repository Information
+
+When you click on a repository, you'll be given general information from GitHub. Icons in The Daily Issue typically correspond to the icons used in GitHub.
+
+<img src="./src/assets/screenshot-1.png" alt="gif of simOn gameplay" width="200" margin="0 auto">
+
+In order from left to right:
+
+- star count
+- fork count
+- watch count
+- open issues count
 
 ## Development
 
