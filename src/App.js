@@ -50,7 +50,7 @@ function App() {
         console.warn('Error! Something went wrong.', err);
       });
   }, []);
-
+  console.log(repoList);
   // used for onClick when Link route for repo is clicked to fetch issues for repo
   const fetchIssues = (repo) => {
     let credentials = btoa(`v-wang:${process.env.REACT_APP_GITHUB_TOKEN}`);
