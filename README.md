@@ -116,11 +116,13 @@ In order to generate the latest trending list from GitHub, the repository name i
 
 ## Development
 
+The development board for The Daily Issue can be found here. It documents upcoming features and current projects we're working on.
+
 [Notion](https://thewangspace.notion.site/48e277dac59e46f9b8bebbaef2d71bea?v=04063f1cc9f845e1a4daa3053e5f90e0)
 
 - ### Wireframes
 
-[Figma](https://www.figma.com/file/CKjjvOEtZat49l9a3raGwO/gh-trending-issues)
+  - [Figma](https://www.figma.com/file/CKjjvOEtZat49l9a3raGwO/gh-trending-issues)
 
 ## Credits
 
