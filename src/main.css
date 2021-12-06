@@ -120,7 +120,7 @@ header h5 {
   /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
   background-color: #f2f3f3;
-  margin-top: 25px;
+  margin-top: 2px;
   overflow-y: scroll;
   margin-left: 10%;
   width: 80%;
@@ -353,7 +353,7 @@ footer h4 {
 .issueTitle h3 {
   display: inline-block;
   vertical-align: text-top;
-  margin-top: -4px;
+  margin-top: -3px;
   margin-left: 6px;
 }
 
@@ -450,6 +450,7 @@ footer h4 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  font-weight: 500;
   /* color: #61d790; */
 }
 @media screen and (max-width: 800px) {

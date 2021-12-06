@@ -9,6 +9,7 @@ import repoLogo from './assets/repository.png';
 import heartGrey from './assets/heart-grey.png';
 import trending from './assets/trend.png';
 import eventsLogo from './assets/events.png';
+import historyLogo from './assets/history.png';
 import Dashboard from './components/Dashboard';
 
 function App() {
@@ -198,6 +199,9 @@ function App() {
               </button>
               <button>
                 <img src={eventsLogo} />
+              </button>
+              <button>
+                <img src={historyLogo} />
               </button>
             </div>
             <div className='repo-results'>
