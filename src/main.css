@@ -294,6 +294,7 @@ footer h4 {
   margin: 0;
   margin-top: 3px;
   line-height: 22px;
+  word-break: break-word;
 }
 
 .repoGenInfo p {
