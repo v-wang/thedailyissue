@@ -1,5 +1,7 @@
 # The Daily Issue
 
+[Come check out the latest issue!](https://arcane-peak-94425.herokuapp.com/)
+
 <img src="./src/assets/screenshot.png" alt="gif of simOn gameplay" width="1000" margin="0 auto">
 
 [Description](#description)
