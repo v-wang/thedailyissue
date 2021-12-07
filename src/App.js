@@ -14,10 +14,13 @@ import Dashboard from './components/Dashboard';
 function App() {
   // set trending repository list from webscrape
   const [repoList, setRepoList] = useState();
+
   // determine load state so that page doesn't load before data is fetched
   const [loadState, setLoadState] = useState(false);
   // holds selected repo information to avoid additional API calls
+
   const [repository, setRepository] = useState();
+
   // set issue data list for given respository
   const [issueData, setIssueData] = useState();
 

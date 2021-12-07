@@ -4,6 +4,11 @@ import { RepoContext } from './../RepoContext';
 import { Link } from 'react-router-dom';
 
 function Repo({ repo }) {
+  const expandInfoBar = () => {
+    const infoBarElem = document.querySelector('.repo-info-holder');
+    infoBarElem.style.minWidth = '500px';
+  };
+
   // determine to show loading message on repo card or not
   const [loadState, setLoadState] = useState(false);
 
@@ -53,7 +58,7 @@ function Repo({ repo }) {
           // fetch issues when Link is clicked
           fetchIssues(repoData);
           repoInfoHolderElem.scrollTo(0, 0);
-
+          expandInfoBar();
           updateRecent(repoData);
         }}
       >

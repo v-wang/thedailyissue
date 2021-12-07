@@ -1,6 +1,6 @@
 # The Daily Issue
 
-<a href='https://arcane-peak-94425.herokuapp.com/' target='_blank'>Come check out the lastest issue!</a>
+<a href='https://arcane-peak-94425.herokuapp.com/' target='blank'>Come check out the lastest issue!</a>
 
 <img src="./src/assets/screenshot.png" alt="gif of simOn gameplay" width="1000" margin="0 auto">
 
