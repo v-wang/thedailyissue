@@ -58,7 +58,7 @@ function Repo({ repo }) {
           // fetch issues when Link is clicked
           fetchIssues(repoData);
           repoInfoHolderElem.scrollTo(0, 0);
-          expandInfoBar();
+          // expandInfoBar();
           updateRecent(repoData);
         }}
       >
