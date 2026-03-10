@@ -1,3 +1,4 @@
+import React from 'react';
 import Issue from './Issue';
 import { useContext, useEffect, useState } from 'react';
 import { RepoContext } from '../RepoContext';
