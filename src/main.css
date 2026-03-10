@@ -451,9 +451,9 @@ footer h4 {
   font-weight: 500;
   /* color: #61d790; */
 }
-@media screen and (max-width: 800px) {
-  .repo-results {
-  }
+
+.modal-close {
+  display: none;
 }
 
 .dashboard {
@@ -551,4 +551,105 @@ footer h4 {
   margin-top: 25px;
   text-align: center;
   line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  header,
+  .optionsBar,
+  .repo-results,
+  .sideBar,
+  footer,
+  .dashboard {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+
+  header,
+  .optionsBar,
+  .repo-results {
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  .dashboard {
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .sideBar {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #d6dbdf;
+    border-bottom: 1px solid #d6dbdf;
+    padding: 8px 0;
+    margin-bottom: 12px;
+  }
+
+  .sideBar button img {
+    margin-top: 0;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  footer {
+    max-width: 100%;
+  }
+
+  .repo-info-holder {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 92vh;
+    z-index: 100;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    overflow-y: auto;
+    padding: 0 5% 30px;
+    box-sizing: border-box;
+    min-width: unset;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .repo-info-holder.has-repo {
+    transform: translateY(0);
+  }
+
+  .repo-info-holder:not(.has-repo) {
+    display: block;
+  }
+
+  .modal-overlay {
+    display: block;
+  }
+
+  .modal-close {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #363f66;
+    padding: 20px 0 12px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+  }
 }

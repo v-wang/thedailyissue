@@ -213,7 +213,12 @@ function App() {
 							</a>
 						</footer>
 					</div>
-					<div className='repo-info-holder'>
+					<div className={`repo-info-holder${repository ? ' has-repo' : ''}`}>
+						{repository && (
+							<button className='modal-close' onClick={() => { setRepository(undefined); setIssueData(undefined); }}>
+								← Back
+							</button>
+						)}
 						<Route exact path='/:name' component={RepoInfoHolder} />
 						{repository === undefined ? (
 							<h5>
