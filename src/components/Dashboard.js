@@ -13,12 +13,15 @@ function Dashboard({
 
   // fetch reddit data
   useEffect(() => {
-    fetch('https://www.reddit.com/r/hackathon/new/.json')
+    fetch('https://corsproxy.io/?https://www.reddit.com/r/hackathon/new/.json')
       .then(function (response) {
         return response.json();
       })
       .then(function (response) {
         setHackathonInfo(response.data.children.splice(0, 3));
+      })
+      .catch(function () {
+        setHackathonInfo([]);
       });
   }, []);
 
